@@ -38,11 +38,11 @@ int doc(FILE*fp, sinhvien sv[50])
 }
 void xuat(sinhvien sv[50], int n)
 {
-	for(int i=1;i<=n;i++)
+	for (int i = 1; i <= n; i++)
 	{
 		wprintf(L"\tThông tin sinh viên %d là\n", i);
 		wprintf(L"Mã số sinh viên  %d là : %s \n", i, sv[i - 1].MSSV);
-		wprintf(L"Họ và tên sinh viên  %d là : %s \n",i, sv[i - 1].hoten);
+		wprintf(L"Họ và tên sinh viên  %d là : %s \n", i, sv[i - 1].hoten);
 		wprintf(L"Khoa của sinh viên %d là : %s \n", i, sv[i - 1].khoa);
 		wprintf(L"Khóa học của sinh viên %d là : %s \n", i, sv[i - 1].khoas);
 		wprintf(L"Ngày sinh của sinh viên %d là : %s \n", i, sv[i - 1].ngaysinh);
@@ -76,13 +76,13 @@ void xuathtml(sinhvien sv)
 	wchar_t filename[20];
 	wcscpy(filename, sv.MSSV);
 	wcscat(filename, L".html");
-	FILE* fp = _wfopen(filename, L"wb");
-	fwprintf(fp, L"\<\!DOCTYPE html PUBLIC \"-\/\/W3C\/\/DTD XHTML 1.0 Transitional\/\/EN\\\" \n");
-	fwprintf(fp, L"\"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\"\>\n");
-	fwprintf(fp, L"<html xmlns\=\"http://www.w3.org/1999/xhtml\"\>\n");
-	fwprintf(fp, L"\<head\>\n");
-	fwprintf(fp, L"\<meta http-equiv\=\"Content \- Type\" content\=\"text \/ html\; charset \= utf \- 8\" />\n");
-	fwprintf(fp, L" \<link rel\=\"stylesheet\" type\=\"text\/css\" href\=\"personal\.css\" />");
+	FILE*fp = _wfopen(filename, L"w, ccs=UTF-8");
+	fwprintf(fp, L"<!DOCTYPE html PUBLIC \"-\//W3C//DTD XHTML 1.0 Transitional\//EN\"\n");
+	fwprintf(fp, L"\"http:\//www.w3.org\/TR\/xhtml1\/DTD\/xhtml1-transitional.dtd\">\n");
+	fwprintf(fp, L"<html xmlns=\"http:\//www.w3.org\/1999\/xhtml\">\n");
+	fwprintf(fp, L"<head>\n");
+	fwprintf(fp, L"<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=utf-8\" \/>\n");
+	fwprintf(fp, L"<link rel=\"stylesheet\" type=\"text\/css\" href=\"personal.css\" \/>\n");
 	fwprintf(fp, L"\<title\>HCMUS \- %s\<\/title\>\n", sv.hoten);
 	fwprintf(fp, L"\<\/head\>\n");
 	fwprintf(fp, L"\<body\>\n");
@@ -164,6 +164,7 @@ void xuathtml(sinhvien sv)
 	fwprintf(fp, L" \<\/div\>\n");
 	fwprintf(fp, L" \<\/body\>\n");
 	fwprintf(fp, L" \<\/html\>\n");
+fclose(fp);
 }
 void main()
 {
@@ -171,17 +172,12 @@ void main()
 	FILE*fp;
 	_wfopen_s(&fp, L"baitap2.csv", L"r,ccs=UTF-8");
 	int k = doc(fp, sv);
-	FILE*f;
-	_wfopen_s(&f, L"baitap.csv", L"w,ccs=UTF-8");
 	_setmode(_fileno(stdout), _O_U8TEXT); // cần thiết cho đầu ra
 	_setmode(_fileno(stdin), _O_U8TEXT); // cần thiết cho đầu vào
-	
+
 	xuat(sv, k);
-	//xuatfile(f, sv, k);
 	for (int i = 0; i < k; i++){
 		xuathtml(sv[i]);
 	}
 	fclose(fp);
-	fclose(f);
-	//fclose(file);
 }
