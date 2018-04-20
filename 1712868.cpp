@@ -67,6 +67,7 @@ void xuatfile(FILE*fp, sinhvien sv[50], int n)
 		fwprintf(fp, L"Hình ảnh của sinh viên %d là : %s \n", i, sv[j].hinhanh);
 		fwprintf(fp, L"Mô tả của sinh viên %d là : %s \n", i, sv[j].mota);
 		fwprintf(fp, L"Sở thích của sinh viên %d là : %s \n", i, sv[j].sothich[0]);
+		fwprintf(fp, L"Sở thích của sinh viên %d là : %s \n", i, sv[j].sothich[1]);
 
 		i++;
 	}
@@ -128,7 +129,7 @@ void xuathtml(sinhvien sv)
 	fwprintf(fp, L" \t\<ul class\=\"TextInList\"\>\n");
 	fwprintf(fp, L"\t\<li\>Họ và tên: %s\<\/li\>\n", sv.hoten);
 	fwprintf(fp, L" \t\<li\>MSSV: %s\<\/li\>\n", sv.MSSV);
-	fwprintf(fp, L" \t\<li\>Sinh viên khoa: %s\<\/li\>\n", sv.khoa);
+	fwprintf(fp, L" \t\<li\>Sinh viên  %s\<\/li\>\n", sv.khoa);
 	fwprintf(fp, L" \t\<li\> Ngày sinh: %s\<\/li\>\n", sv.ngaysinh);
 	fwprintf(fp, L" \t\<li\> Email: %s@student.hcmus.edu.vn\<\/li\>\n", sv.MSSV);
 	fwprintf(fp, L" \t\<\/ul\>\n");
