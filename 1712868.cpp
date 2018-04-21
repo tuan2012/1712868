@@ -80,10 +80,10 @@ void xuathtml(sinhvien sv)
 	FILE*fp = _wfopen(filename, L"w, ccs=UTF-8");
 	fwprintf(fp, L"<!DOCTYPE html PUBLIC \"-\//W3C//DTD XHTML 1.0 Transitional\//EN\"\n");
 	fwprintf(fp, L"\"http:\//www.w3.org\/TR\/xhtml1\/DTD\/xhtml1-transitional.dtd\">\n");
-	fwprintf(fp, L"<html xmlns=\"http:\//www.w3.org\/1999\/xhtml\">\n");
-	fwprintf(fp, L"<head>\n");
-	fwprintf(fp, L"<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=utf-8\" \/>\n");
-	fwprintf(fp, L"<link rel=\"stylesheet\" type=\"text\/css\" href=\"personal.css\" \/>\n");
+	fwprintf(fp, L"\<html xmlns\=\"http:\/\/www.w3.org\/1999\/xhtml\">\n");
+	fwprintf(fp, L"\<head\>\n");
+	fwprintf(fp, L"\<meta http\-equiv\=\"Content\-Type\" content\=\"text\/html; charset\=utf\-8\" \/>\n");
+	fwprintf(fp, L"\<link rel\=\"stylesheet\" type=\"text\/css\" href\=\"personal\.css\" \/>\n");
 	fwprintf(fp, L"\<title\>HCMUS \- %s\<\/title\>\n", sv.hoten);
 	fwprintf(fp, L"\<\/head\>\n");
 	fwprintf(fp, L"\<body\>\n");
@@ -165,7 +165,7 @@ void xuathtml(sinhvien sv)
 	fwprintf(fp, L" \<\/div\>\n");
 	fwprintf(fp, L" \<\/body\>\n");
 	fwprintf(fp, L" \<\/html\>\n");
-fclose(fp);
+	fclose(fp);
 }
 void main()
 {
