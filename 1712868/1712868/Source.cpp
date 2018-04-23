@@ -17,11 +17,13 @@ struct sinhvien
 int doc(FILE*fp, sinhvien sv[50])
 {
 	wchar_t k[10];
+	wchar_t p;
 	wchar_t*temp = NULL;
 	wchar_t arr[256];
 	int i = 0, m = 0;
 	while ((temp = fgetws(arr, sizeof(arr), fp)) != NULL)
 	{
+		p = arr[0];
 		wcscpy_s(sv[i].MSSV, wcstok(temp, L","));
 		wcscpy_s(sv[i].hoten, wcstok(NULL, L","));
 		wcscpy_s(sv[i].khoa, wcstok(NULL, L","));
